@@ -44,6 +44,11 @@ function gamePlay(){
                 status.innerText = `Congratulations! ${state[0]} is the Winner!`;
                 status.classList.add('you-won');
                 isGameEnd = true;
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                });
             }
             
             else if (state[4] !== undefined && ((state[1]===state[4] && state[4]===state[7]) 
@@ -53,6 +58,11 @@ function gamePlay(){
                 status.innerText = `Congratulations! ${state[4]} is the Winner!`;
                 status.classList.add('you-won');
                 isGameEnd = true;
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                });
             }
 
             else if( state[8] !== undefined && ((state[6]===state[7] && state[7]===state[8]) 
@@ -61,6 +71,11 @@ function gamePlay(){
                 status.innerText = `Congratulations! ${state[8]} is the Winner!`;
                 status.classList.add('you-won');
                 isGameEnd = true;
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                });
             }
 
         };
@@ -90,6 +105,7 @@ function gamePlay(){
             square.classList.remove('O');
             square.innerText = '';
         }
+
     };
 }
 
