@@ -9,7 +9,7 @@ function gamePlay(){
     let restart = document.getElementsByClassName('btn')[0];
 
     let state = new Array(9); 
-    let last = 'X';
+    let last = 'O';
     let index = 0;
 
     let isGameEnd = false;
@@ -55,7 +55,7 @@ function gamePlay(){
                 isGameEnd = true;
             }
 
-            else if( state[6] !== undefined && ((state[6]===state[7] && state[7]===state[8]) 
+            else if( state[8] !== undefined && ((state[6]===state[7] && state[7]===state[8]) 
                 || (state[2]===state[5] && state[5]===state[8]))){
                     
                 status.innerText = `Congratulations! ${state[8]} is the Winner!`;
@@ -72,11 +72,25 @@ function gamePlay(){
         };
 
         square.onmouseleave = event =>{
-            if(!isGameEnd){
-                event.target.classList.remove('hover');
-            }
+            event.target.classList.remove('hover');
         };
     }
+
+    restart.onclick = event =>{
+        state = new Array(9);
+        isGameEnd = false;
+        
+        status.classList.remove('you-won');
+        status.innerText = 'Move your mouse over a square and click to play an X or an O.';
+
+        last = 'O';
+
+        for (let square of squares){
+            square.classList.remove('X');
+            square.classList.remove('O');
+            square.innerText = '';
+        }
+    };
 }
 
 
